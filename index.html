@@ -7,69 +7,135 @@
     <title>Sign Up</title>
 </head>
 <style>
-    /* General styling */
+    /* General Styling */
     body {
-        font-family: Arial, sans-serif;
+        font-family: 'Montserrat', sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
         margin: 0;
-        background: linear-gradient(135deg, salmon, #2575fc);
+        background: radial-gradient(circle, #1e1e2f, #161622);
         color: #fff;
     }
 
+    /* Glassmorphic Container */
     .container {
-        background: #ffffff;
-        color: #333;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         text-align: center;
-        width: 300px;
+        width: 100%;
+        max-width: 400px;
     }
 
+    /* Header Styling */
     h1 {
-        margin-bottom: 1rem;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, #ff7eb3, #ff758c, #6a90fd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Form Styling */
+    form {
+        display: flex;
+        flex-direction: column;
     }
 
     input {
         width: 100%;
-        padding: 0.8rem;
-        margin: 0.5rem 0;
-        border: 1px solid #ddd;
-        border-radius: 5px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
         font-size: 1rem;
+        transition: all 0.3s ease;
     }
 
+    input:focus {
+        background: rgba(255, 255, 255, 0.3);
+        outline: none;
+        box-shadow: 0 0 8px rgba(255, 126, 179, 0.7);
+    }
+
+    /* Button Styling */
     button {
-        width: 100%;
-        padding: 0.8rem;
-        background-color: #2575fc;
+        padding: 1rem;
+        background: linear-gradient(135deg, #6a90fd, #ff758c);
         color: #fff;
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         font-size: 1rem;
+        font-weight: bold;
         cursor: pointer;
-        transition: background 0.3s ease;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
     }
 
     button:hover {
-        background-color: #1a5dcc;
+        background: linear-gradient(135deg, #ff758c, #6a90fd);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 126, 179, 0.4);
     }
 
+    /* Text and Link Styling */
     p {
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+        color: #aaa;
     }
 
     a {
-        color: #2575fc;
+        color: #6a90fd;
         text-decoration: none;
         font-weight: bold;
+        transition: color 0.3s ease;
     }
 
     a:hover {
+        color: #ff7eb3;
         text-decoration: underline;
+    }
+
+    /* Floating Decorative Elements */
+    .decorative-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff7eb3, #6a90fd);
+        filter: blur(100px);
+        z-index: -1;
+        animation: move 8s ease-in-out infinite alternate;
+    }
+
+    .decorative-circle.large {
+        width: 400px;
+        height: 400px;
+        top: 10%;
+        left: -15%;
+    }
+
+    .decorative-circle.small {
+        width: 200px;
+        height: 200px;
+        bottom: -10%;
+        right: -10%;
+    }
+
+    @keyframes move {
+        from {
+            transform: translateX(-20px) translateY(20px);
+        }
+
+        to {
+            transform: translateX(20px) translateY(-20px);
+        }
     }
 </style>
 
