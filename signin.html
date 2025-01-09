@@ -7,7 +7,6 @@
     <title>Sign In</title>
 </head>
 <style>
-    /* General styling */
     body {
         font-family: Arial, sans-serif;
         display: flex;
@@ -15,61 +14,121 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-        background: linear-gradient(135deg, pink, skyblue);
+        background: radial-gradient(circle at center, #2c2c54, #1e1e30);
         color: #fff;
     }
 
+    /* Glassmorphic Container */
     .container {
-        background: #ffffff;
-        color: #333;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(20px);
         padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
         text-align: center;
-        width: 300px;
+        width: 320px;
     }
 
+    /* Header */
     h1 {
-        margin-bottom: 1rem;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: #ff7eb3;
+        background: linear-gradient(135deg, #ff758c, #6a90fd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
+    /* Input Fields */
     input {
         width: 100%;
-        padding: 0.8rem;
-        margin: 0.5rem 0;
-        border: 1px solid #ddd;
-        border-radius: 5px;
+        padding: 1rem;
+        margin: 0.8rem 0;
+        border: none;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
         font-size: 1rem;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
     }
 
+    input:focus {
+        background: rgba(255, 255, 255, 0.3);
+        outline: none;
+        box-shadow: 0 0 10px rgba(255, 126, 179, 0.5);
+    }
+
+    /* Buttons */
     button {
         width: 100%;
-        padding: 0.8rem;
-        background-color: #2575fc;
+        padding: 1rem;
+        background: linear-gradient(135deg, #6a90fd, #ff758c);
         color: #fff;
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         font-size: 1rem;
+        font-weight: bold;
         cursor: pointer;
-        transition: background 0.3s ease;
+        transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     button:hover {
-        background-color: #1a5dcc;
+        background: linear-gradient(135deg, #ff758c, #6a90fd);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 126, 179, 0.4);
     }
 
+    /* Paragraph and Links */
     p {
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+        color: #aaa;
     }
 
     a {
-        color: #2575fc;
+        color: #6a90fd;
         text-decoration: none;
         font-weight: bold;
+        transition: color 0.3s ease;
     }
 
     a:hover {
+        color: #ff7eb3;
         text-decoration: underline;
+    }
+
+    /* Floating Decorative Backgrounds */
+    .decorative-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff7eb3, #6a90fd);
+        filter: blur(120px);
+        z-index: -1;
+        animation: move 10s infinite alternate ease-in-out;
+    }
+
+    .decorative-circle.large {
+        width: 450px;
+        height: 450px;
+        top: -15%;
+        left: -15%;
+    }
+
+    .decorative-circle.small {
+        width: 250px;
+        height: 250px;
+        bottom: -10%;
+        right: -10%;
+    }
+
+    @keyframes move {
+        0% {
+            transform: translateY(0px) translateX(0px);
+        }
+
+        100% {
+            transform: translateY(20px) translateX(20px);
+        }
     }
 </style>
 
