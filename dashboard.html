@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<style>
+    /* General styling */
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #FFC196, #FF6F61);
+        color: #fff;
+    }
+
+    .dashboard-container {
+        text-align: center;
+        background: #ffffff;
+        color: #333;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        width: 350px;
+    }
+
+    h1 {
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        color: #0072ff;
+    }
+
+    button {
+        padding: 0.8rem 1.5rem;
+        background-color: #0072ff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+        background-color: #005bb5;
+        transform: scale(1.05);
+    }
+
+    button:active {
+        transform: scale(0.98);
+    }
+
+    footer {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        color: #666;
+    }
+</style>
+
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome to the Dashboard</h1>
+        <button id="logout-button">Logout</button>
+        <footer>Thank you for visiting!</footer>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBAwM7DSitVol775g8gUXliDVOfrNgWRfU",
+            authDomain: "fireweb-6fa6d.firebaseapp.com",
+            projectId: "fireweb-6fa6d",
+            storageBucket: "fireweb-6fa6d.firebasestorage.app",
+            messagingSenderId: "187694933452",
+            appId: "1:187694933452:web:cf5e051f51e1e33d952969",
+            measurementId: "G-W83L94MSX1"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById('logout-button').addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                alert('Logged out successfully');
+                window.location.href = "signin.html";
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        });
+    </script>
+</body>
+
+</html>
